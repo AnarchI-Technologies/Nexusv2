@@ -1,24 +1,43 @@
 # Nexus v2
 
-Next-generation AnarchI coordination and integration platform prototype.
+Canonical integration surface for the AnarchI deterministic systems stack.
 
 Hardcoding freedom into the systems of tomorrow.
 
 ## Purpose
 
-Nexus v2 is the more developed integration surface for connecting AnarchI modules into one operating picture. It should become the clean successor to earlier Nexus design kit experiments once its structure is reviewed and hardened.
+Nexus v2 is the cleaned successor to the earlier Nexus design-kit experiments. It connects incoming events, deterministic rules, execution adapters, audit trails, and AI escalation boundaries into one coherent operating layer.
 
-## Scope
+## What Is Fixed
 
-- Product and system coordination.
-- Operator-facing integration patterns.
-- Reusable state, routing, and presentation concepts.
-- Public-safe documentation of the platform direction.
+- Replaced a broken public pipeline entrypoint that referenced missing modules.
+- Added a dependency-free deterministic orchestration core.
+- Added tests for execute, hold, review, and AI-escalation decisions.
+- Clarified that `Nexusv2` is the canonical Nexus path while `Nexus` remains legacy research.
 
-## Production Direction
+## Structure
 
-Nexus v2 should be shaped into the canonical Nexus repo over time: reviewed structure, clear setup instructions, tests, and archived notes for any superseded experiments.
+```text
+.
+├── nexus_orchestration_core.py   # Tested public pipeline spine
+├── Distributed_Bus/              # Event transport experiments
+├── Event_Queue/                  # Async queue primitive
+├── Execution_Adapters/           # External action adapters
+├── Schema_Registry/              # Schema direction
+├── Worker_Nodes/                 # Worker node experiments
+└── tests/                        # Verification suite
+```
+
+## Verify
+
+```bash
+python -m unittest discover -s tests -q
+```
+
+## Operating Rule
+
+Deterministic checks route every event first. AI is used only when confidence is too low after the deterministic gates have done their work.
 
 ## Public Safety
 
-Do not commit private credentials, live runtime state, user data, or unreleased deterministic decision chains. Public Nexus should explain the operating model without exposing the machinery that makes it defensible.
+This repo is safe for public presentation. It does not include private credentials, live runtime state, wallet material, customer data, or unreleased CERBERUS decision chains.
